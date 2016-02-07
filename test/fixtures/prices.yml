@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+price_one:
+  price: 25
+  date: 2016-02-07 13:04:58
+  user: user1
+  city: city_one
+  place: place_one
+  brand: brand_one
+  product: product_one
+
