@@ -1,0 +1,27 @@
+<%= form_for(@price) do |f| %>
+  <% if @price.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@price.errors.count, "error") %> prohibited this price from being saved:</h2>
+
+      <ul>
+      <% @price.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  Product: <%=f.select :product_id, Product.all.map{|p| [p.name, p.id]}%>
+
+  Brand: <%=f.select :brand_id, Brand.all.map{|p| [p.name, p.id]}%>
+
+  City: <%=f.select :city_id, City.all.map{|p| [p.name, p.id]}%>
+
+  Place: <%=f.select :place_id, Place.all.map{|p| [p.name, p.id]}%>
+
+  Price: <%=f.text_field :price%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

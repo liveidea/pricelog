@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 9.99
+  date: 2016-02-13 14:06:19
+  user_id: 1
+  city_id: 1
+  place_id: 1
+  brand_id: 1
+  product_id: 1
+
+two:
+  price: 9.99
+  date: 2016-02-13 14:06:19
+  user_id: 1
+  city_id: 1
+  place_id: 1
+  brand_id: 1
+  product_id: 1
