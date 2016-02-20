@@ -1,7 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-city_one:
-  name: Lviv
-
-city_two:
-  name: Luck
