@@ -13,26 +13,36 @@
     <% @prices.each do |price| %>
       <tr>  
         <td><%=number_to_currency(price.price,unit: "грн.", separator: ",", delimiter: "", format: "%n %u")%></td>
-        <td><%=price.product.name%></td>
+        <%- if price.product.nil? %>
+          <td> no product</td>
+        <%else%>
+          <td><%=price.product.name%></td>
+        <%end%>
 
-        <%- if price.brand==nil %>
+        <%- if price.brand.nil? %>
           <td> no brand</td>
         <%else%>
           <td><%=price.brand.name%></td>
         <%end%>
 
-        <%- if price.city==nil %>
+        <%- if price.city.nil? %>
           <td> no city</td>
         <%else%>
           <td><%=price.city.name%></td>
         <%end%>
 
-        <%- if price.place==nil %>
+        <%- if price.place.nil? %>
           <td> no place</td>
         <%else%>
           <td><%=price.place.name%></td>
         <%end%>
-        
+
+        <%- if price.date.nil? %>
+          <td> no date</td>
+        <%else%>
+          <td><%=price.date%></td>
+        <%end%>
+             
 
         <td><%= link_to 'Show', price %></td>
         <td><%= link_to 'Edit', edit_price_path(price) %></td>
