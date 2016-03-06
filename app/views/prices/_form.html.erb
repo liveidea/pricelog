@@ -19,7 +19,7 @@
 
   Place: <%=f.select :place_id, Place.all.map{|p| [p.name, p.id]}%>
 
-  Price: <%=f.text_field :price%>
+  Price: <%=f.text_field :cost%>
 
   Date: <%=f.datetime_select :date%>
 
