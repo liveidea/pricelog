@@ -7,6 +7,9 @@ class PricesController < ApplicationController
   def index
 
     @prices = Price.where("date IS NOT NULL").order("date ASC")
+    @prise_first = @prices.first
+    @prise_first = @prices.last
+
 
     if params[:product_id]
       @prices = @prices.where(product_id: params[:product_id])
