@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
+# postgresql
+gem 'pg'
 # Graphic
+# gem 'groupdate'
 # gem 'googlecharts', '~> 1.6', '>= 1.6.12'
 gem 'chart-js-rails', '~> 0.0.9'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
