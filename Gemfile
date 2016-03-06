@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
-
-
+# Graphic
+# gem 'googlecharts', '~> 1.6', '>= 1.6.12'
+gem 'chart-js-rails', '~> 0.0.9'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use mysql as the database for Active Record

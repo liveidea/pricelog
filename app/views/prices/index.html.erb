@@ -1,29 +1,60 @@
 <p id="notice"><%= notice %></p>
 
+ 
+<canvas id="canvas" height="450" width ="600"></canvas>
+
+
+<script>
+jQuery(function() {
+  var data, myNewChart;
+  data = {
+    labels: [
+    
+      
+      <% @prices.each do |price| %>
+        '<%= price.date.to_date %>'
+
+        ,
+      
+      <% end %>
+    ],
+    datasets: [
+      {
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        data: [
+        <% if %>
+          <% @prices.each do |price| %>
+            <%= price.cost || 0 %>
+            ,
+          <% end %>
+          <% end %>
+        ]
+      }
+    ]
+  };
+  return myNewChart = new Chart($("#canvas").get(0).getContext("2d")).Line(data);
+});
+</script>
+
+
+<%= link_to 'Add new price', new_price_path, class:"btn btn-success pull-right" %>
+
 <h1>Список цін</h1>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<ul>
 
+  
+  
+</ul>
+
+<table class='table'>
   <tbody>
     <% @prices.each do |price| %>
       <tr>  
-        <td><%=number_to_currency(price.price,unit: "грн.", separator: ",", delimiter: "", format: "%n %u")%></td>
-        <%- if price.product.nil? %>
-          <td> no product</td>
-        <%else%>
-          <td><%=price.product.name%></td>
-        <%end%>
-
-        <%- if price.brand.nil? %>
-          <td> no brand</td>
-        <%else%>
-          <td><%=price.brand.name%></td>
-        <%end%>
+        <td><%=number_to_currency(price.cost,unit: "грн.", separator: ",", delimiter: "", format: "%n %u")%></td>
 
         <%- if price.city.nil? %>
           <td> no city</td>
@@ -37,23 +68,41 @@
           <td><%=price.place.name%></td>
         <%end%>
 
+        <%- if price.product.nil? %>
+          <td><%= link_to 'no product' %></td>
+        <%else%>
+          <td><%=link_to price.product.name, {product_id: price.product}%></td>
+        <%end%>
+
+        <%- if price.brand.nil? %>
+          <td> no brand</td>
+        <%else%>
+          <td><%=price.brand.name%></td>
+        <%end%>
+      
         <%- if price.date.nil? %>
           <td> no date</td>
         <%else%>
-          <td><%=price.date%></td>
+          <td><%=price.date.strftime("%d-%m-%Y")%></td>
         <%end%>
              
 
         <td><%= link_to 'Show', price %></td>
         <td><%= link_to 'Edit', edit_price_path(price) %></td>
-        <td><%= link_to 'Destroy', price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'Destroy', price, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </tr>
+
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Price', new_price_path %>
+    
 
-<%= paginate @prices %>
+
+
+
+
+
+  

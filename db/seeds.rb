@@ -19,15 +19,24 @@ users = User.create([
 	])
 
 brands = Brand.create([
-	{name: 'Slovianochka' }, {name: 'Prostokvashino' }
+	{name: 'Словяночка' }, {name: 'Простоквашино' }, {name: 'Молокія' }, {name: 'Біла Лінія' }, 
+	{name: 'Галичина' }, {name: 'Яготинське' }, {name: 'Галактон' }, {name: 'Преміалле' }, 
+	{name: 'Злагода' }  
 	])
 
 cities = City.create([
-	{name: 'Lutsk' }, {name: 'Lviv' }, {name: 'IvanoFrankivsk' }, {name: 'Kyiv' }, {name: 'Kharkiv' },
-	{name: 'Rivne' }, {name: 'Ternopil' }, {name: 'Mykachevo' }, {name: 'Odessa' }, {name: 'Dybno' }, 
-	{name: 'Dnipropetrovsk' }, {name: 'Sumy' }
+	{name: 'Луцьк' }, {name: 'Львів' }, {name: 'Івано-Франківськ' }, {name: 'Київ' }, {name: 'Харків' },
+	{name: 'Рівне' }, {name: 'Тернопіль' }, {name: 'Мукачево' }, {name: 'Одесса' }, {name: 'Дубно' }, 
+	{name: 'Дніпрепотровсь' }, {name: 'Запоріжжя' }
 	])
+
 places = Place.create ([
+	{name: 'Наш Край' }, {name: 'Сільпо' }, {name: 'Ашан' }, {name: 'Метро' }, {name: 'МегаМаркет' },
+	{name: 'Новус' }, {name: 'Арсен' }, {name: 'Фуршет' }, {name: 'Скриня' }, {name: 'ЕкоМаркет' }
+	])
 	
+products = Product.create ([
+	{name: 'Масло' }, {name: 'Молоко' }, {name: 'Сир' }, {name: 'Кефір' }, {name: 'Ряжанка' },
+	{name: 'Йогурт' }, {name: 'Закваска' }, {name: 'Морозиво' }, {name: 'СирнийБатончик' }
 	])
 

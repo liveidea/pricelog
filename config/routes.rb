@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-  resources :prices
-  devise_for :users
-  
-  #root to: "prices#new"
-  devise_scope :user do
-    root to: "devise/sessions#new"
+
+  get 'products/index'
+
+  resources :prices do 
+    get 'check', on: :member
   end
+ 
+  devise_for :users
+
+  #root to: "prices#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  #root 'devise'
+  root 'prices#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

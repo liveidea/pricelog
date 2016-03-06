@@ -5,21 +5,26 @@ class PricesController < ApplicationController
   # GET /prices.json
   
   def index
-    @prices = Price.page(params[:page]).per(5)
-   
+
+    @prices = Price.where("date IS NOT NULL").order("date ASC")
+
+    if params[:product_id]
+      @prices = @prices.where(product_id: params[:product_id])
+    end
+  end
+
+  def show
+
   end
 
   # GET /prices/1
   # GET /prices/1.json
-  def show
-  end
-
-  # GET /prices/new
+   # GET /prices/new
   def new
     @price = Price.new
   end
 
-  # GET /prices/1/edit
+   # GET /prices/1/edit
   def edit
   end
 
@@ -63,6 +68,16 @@ class PricesController < ApplicationController
     end
   end
 
+  def check
+    @price = Price.find(params[:id])
+    @price.present = true
+
+    respond_to do |format|
+      format.html { redirect_to prices_url, notice: 'Price was successfully checked.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_price
@@ -71,6 +86,6 @@ class PricesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def price_params
-      params.require(:price).permit(:price, :product_id, :brand_id, :city_id, :place_id, :date)
+      params.require(:price).permit(:price, :product_id, :brand_id, :city_id, :place_id, :date, :present)
     end
 end
